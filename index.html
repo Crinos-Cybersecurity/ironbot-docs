@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IronBOT — Find the gaps before attackers do</title>
+<meta name="description" content="Autonomous AI-powered pentesting for web apps, APIs, and code repositories. Continuous recon, real exploitation, validated findings.">
+<style>
+  :root{
+    --bg:#070b14; --surface:#0d1424; --elevated:#111a2e; --border:#1c2a44; --border-strong:#2b3f63;
+    --text:#c9d6ea; --strong:#f2f7ff; --muted:#7c8db0; --accent:#22d3ee; --accent-fg:#04121a; --danger:#ef4444;
+    --radius:12px; --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:960px;margin:0 auto;padding:0 22px}
+  header{padding:26px 0;border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:19px;color:var(--strong);letter-spacing:-.02em}
+  .brand span{color:var(--accent)}
+  .nav-links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .nav-links a{color:var(--muted)}
+  .nav-links a:hover{color:var(--strong)}
+  .hero{padding:74px 0 60px;text-align:center}
+  .hero h1{font-size:clamp(30px,5.4vw,50px);line-height:1.1;color:var(--strong);letter-spacing:-.03em;margin-bottom:18px}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero p{font-size:17px;color:var(--muted);max-width:620px;margin:0 auto 30px}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;padding:12px 22px;border-radius:var(--radius);font-weight:600;font-size:15px;border:1px solid var(--border-strong);color:var(--strong)}
+  .btn:hover{text-decoration:none;border-color:var(--accent)}
+  .btn-primary{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+  .btn-primary:hover{filter:brightness(1.1)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:44px 0 0}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 12px}
+  .stat b{display:block;font-size:26px;color:var(--strong);letter-spacing:-.02em}
+  .stat small{color:var(--muted);font-size:13px}
+  section{padding:54px 0;border-top:1px solid var(--border)}
+  h2{font-size:24px;color:var(--strong);letter-spacing:-.02em;margin-bottom:24px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+  .card h3{font-size:15px;color:var(--strong);margin-bottom:8px}
+  .card p{font-size:14px;color:var(--muted)}
+  ol.steps{list-style:none;counter-reset:s}
+  ol.steps li{counter-increment:s;position:relative;padding:0 0 22px 52px}
+  ol.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:2px;color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.06em}
+  ol.steps li b{display:block;color:var(--strong);font-size:15px}
+  ol.steps li p{font-size:14px;color:var(--muted)}
+  ul.find{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px 22px}
+  ul.find li{font-size:14px;padding-left:20px;position:relative;color:var(--text)}
+  ul.find li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .plan{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column}
+  .plan.featured{border-color:var(--accent)}
+  .plan h3{color:var(--strong);font-size:17px;margin-bottom:4px}
+  .plan .price{color:var(--accent);font-weight:700;font-size:22px;margin-bottom:12px}
+  .plan ul{list-style:none;font-size:14px;color:var(--muted);margin-bottom:20px}
+  .plan li{padding-left:18px;position:relative;margin-bottom:6px}
+  .plan li::before{content:"✓";position:absolute;left:0;color:var(--ok,#22c55e)}
+  .plan .btn{margin-top:auto;text-align:center}
+  .tags{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+  .tag{border:1px solid var(--border-strong);border-radius:999px;padding:5px 14px;font-size:13px;color:var(--muted)}
+  .closing{text-align:center}
+  .closing p{color:var(--muted);margin-bottom:22px}
+  footer{padding:34px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center}
+  footer a{color:var(--muted);text-decoration:underline}
+  @media(max-width:560px){.stats{grid-template-columns:1fr}.hero{padding:52px 0 40px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">Iron<span>BOT</span></div>
+    <nav class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#finds">What it finds</a>
+      <a href="#pricing">Pricing</a>
+      <a href="docs/">Docs</a>
+      <a href="https://app.ironbot.io">Run a pentest</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" style="border-top:none">
+    <h1>Find the gaps<br><em>before attackers do</em></h1>
+    <p>Autonomous AI-powered pentesting for web apps, APIs, and code repositories. Reconnaissance, real exploitation, and validated findings — always within the scope you authorize.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://app.ironbot.io">Run my first pentest</a>
+      <a class="btn" href="https://ironbot.io/#contact">Book 20 min with a specialist</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>24/7</b><small>Continuous, autonomous testing</small></div>
+      <div class="stat"><b>16+</b><small>Vulnerability categories covered</small></div>
+      <div class="stat"><b>0-day</b><small>Real vulnerability discovery</small></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="how">
+    <h2>Our AI agent attacks before criminals do</h2>
+    <ol class="steps">
+      <li><b>Register your target securely</b><p>Define what should be tested: a web app, an API, or a code repository on GitHub.</p></li>
+      <li><b>Automated reconnaissance</b><p>IronBOT maps the attack surface — subdomains, endpoints, exposed technologies, entry points — cross-referencing your source code with the live application.</p></li>
+      <li><b>Exploitation and real validation</b><p>Specialized sub-agents for reconnaissance, exploitation, and post-exploitation work together, chain vulnerabilities, and prove real impact.</p></li>
+      <li><b>Evidence and remediation</b><p>Every confirmed vulnerability ships with a severity rating, reproducible proof of exploitation, and a remediation recommendation.</p></li>
+    </ol>
+    <div class="tags">
+      <span class="tag">OWASP Top 10</span>
+      <span class="tag">MITRE ATT&amp;CK</span>
+      <span class="tag">SANS Top 25</span>
+    </div>
+  </section>
+
+  <section class="wrap" id="finds">
+    <h2>What IronBOT can find</h2>
+    <ul class="find">
+      <li>Access control flaws (IDOR, privilege escalation)</li>
+      <li>SQL, NoSQL, OS command, and SSTI injection</li>
+      <li>SSRF, XXE, insecure deserialization, RCE</li>
+      <li>XSS, CSRF, and prototype pollution</li>
+      <li>Business logic flaws (race conditions, payment manipulation)</li>
+      <li>Authentication and session issues, including JWT attacks</li>
+      <li>API flaws: broken auth, mass assignment, rate-limit bypass</li>
+      <li>Insecure infrastructure configurations</li>
+    </ul>
+  </section>
+
+  <section class="wrap" id="pricing">
+    <h2>Choose how you protect your product</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>One-Shot Pentest</h3>
+        <div class="price">from $25</div>
+        <ul>
+          <li>Single target: web app or code repository</li>
+          <li>Platform-guided scope approval</li>
+          <li>On-demand execution, no subscription</li>
+          <li>Complete report with evidence and remediation</li>
+        </ul>
+        <a class="btn" href="https://app.ironbot.io">Run my first pentest</a>
+      </div>
+      <div class="plan featured">
+        <h3>IronBOT Enterprise (PTaaS)</h3>
+        <div class="price">Talk to us</div>
+        <ul>
+          <li>Integration with your repos and security systems</li>
+          <li>Recurring, scheduled pentests</li>
+          <li>Security checks on every pull request</li>
+          <li>Reports by download, email, and API</li>
+        </ul>
+        <a class="btn btn-primary" href="https://ironbot.io/#contact">Book 20 min with a specialist</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap closing">
+    <h2>Let's strengthen your security</h2>
+    <p>Brazil · Global remote coverage.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://ironbot.io/#contact">Talk to our team</a>
+      <a class="btn" href="docs/">Read the docs</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    IronBOT is a product of Crinos Cybersecurity. · <a href="https://ironbot.io">ironbot.io</a> · <a href="SECURITY.md">Security</a> · <a href="LICENSE">License</a>
+  </div>
+</footer>
+
+</body>
+</html>
