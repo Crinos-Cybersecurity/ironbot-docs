@@ -1,10 +1,10 @@
 # Plans
 
-Two ways to work with IronBOT: a single on-demand test, or continuous security embedded in your development flow.
+Three ways to work with IronBOT: a single on-demand test, continuous security embedded in your development flow, or a white-label platform you resell as your own.
 
 ## One-Shot Pentest
 
-**Starting at $50.**
+**Starting at $80.**
 
 For teams that need a focused test, with no strings attached.
 
@@ -30,14 +30,28 @@ For companies that want security embedded in their development flow. We study yo
 
 [Book 20 minutes with a specialist →](https://ironbot.io/#contact)
 
+## IronBOT 4 MSPs
+
+**White-label reseller program for MSPs.**
+
+Our white-label resale offering for MSPs: customize the entire system and focus on selling — we take care of everything else.
+
+- Custom logo, fonts, colors, languages, and domain
+- System maintenance and user support on us
+- Customize your own plans and payment systems
+- A constantly evolving system, with more features all the time
+
+[I want to resell IronBOT →](https://ironbot.io/#contact)
+
 ---
 
 ## Which one fits?
 
-| | One-Shot Pentest | IronBOT Enterprise |
-| --- | --- | --- |
-| Target | One web app or repo | Repositories + systems |
-| Cadence | On demand | Continuous / scheduled |
-| Per-PR checks | — | ✓ |
-| API-delivered reports | — | ✓ |
-| Best when | You need a focused test now | Security must scale with your team |
+| | One-Shot Pentest | IronBOT Enterprise | IronBOT 4 MSPs |
+| --- | --- | --- | --- |
+| Target | One web app or repo | Repositories + systems | Your clients, under your brand |
+| Cadence | On demand | Continuous / scheduled | Recurring, per client |
+| Per-PR checks | — | ✓ | ✓ |
+| API-delivered reports | — | ✓ | ✓ |
+| White-label | — | — | ✓ |
+| Best when | You need a focused test now | Security must scale with your team | You sell security services and want your own platform |

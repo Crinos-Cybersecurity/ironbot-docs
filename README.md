@@ -49,8 +49,9 @@ See [docs/vulnerability-coverage.md](docs/vulnerability-coverage.md) for details
 
 | Plan | Starting at | Best for |
 | --- | --- | --- |
-| **One-Shot Pentest** | $50 | A focused, single-target test with a complete report. No subscription. |
+| **One-Shot Pentest** | $80 | A focused, single-target test with a complete report. No subscription. |
 | **IronBOT Enterprise (PTaaS)** | Talk to us | Continuous security embedded in your development flow: recurring pentests, per-PR checks, API-delivered reports. |
+| **IronBOT 4 MSPs** | Talk to us | White-label reseller program for MSPs: customize the entire system and focus on selling. |
 
 Full breakdown in [docs/plans.md](docs/plans.md).
 

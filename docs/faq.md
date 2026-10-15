@@ -30,7 +30,7 @@ Only test systems you own or have explicit written permission to test. IronBOT a
 
 ## How is pricing structured?
 
-A single pentest starts at **$15** (One-Shot Pentest). Continuous security is sold as **IronBOT Enterprise (PTaaS)** — [book a call](https://ironbot.io/#contact) and we'll size it to your company.
+A single pentest starts at **$80** (One-Shot Pentest). Continuous security is sold as **IronBOT Enterprise (PTaaS)**, and white-label resale for MSPs as **IronBOT 4 MSPs** — [book a call](https://ironbot.io/#contact) and we'll size it to your company.
 
 ## How do I report a security issue in IronBOT itself?
 
