@@ -2,7 +2,7 @@
 
 **Find the gaps before attackers do.**
 
-Autonomous AI-powered pentesting — continuous reconnaissance, real exploitation, and validated findings for web apps, APIs, and code repositories.
+Autonomous AI-powered Cybersecurity Analyst — continuous reconnaissance, real exploitation, and validated findings for web apps, APIs, and code repositories.
 
 [Website](https://ironbot.io) · [Run a pentest](https://app.ironbot.io) · [Documentation](docs/) · [Book a call](https://ironbot.io/#contact)
 
